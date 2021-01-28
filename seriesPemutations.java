@@ -2,6 +2,8 @@ package algos;
 
 import java.util.*;
 
+
+
 public class seriesPemutations {
     static Set<String> perm = new HashSet<String>(); // avoid dup
     static Scanner sc = new Scanner(System.in);
@@ -16,17 +18,7 @@ public class seriesPemutations {
         }
         return String.valueOf(arr);
     }
-    public static void main(String[] args) {
-        System.out.println("How many games?");
-        int n = Integer.parseInt(sc.nextLine());
-        String str = initString(n);
-        System.out.println(str);
-        
-        permute(str, 0, n - 1);
-        System.out.println("Ways one team can win " + perm.size()); // instances when team A wins
-        System.out.println("Total ways of winning " + perm.size() * 2); // total ways
-    }
-
+    
     // l is left, r is right
     public static void permute(String str, int l, int r) { // other variations include working substring and answer as params
         if (l == r) {
@@ -55,5 +47,16 @@ public class seriesPemutations {
         arr[i] = arr[j];
         arr[j] = temp;
         return String.valueOf(arr); 
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("How many games?");
+        int n = Integer.parseInt(sc.nextLine());
+        String str = initString(n);
+        System.out.println(str);
+        
+        permute(str, 0, n - 1);
+        System.out.println("Ways one team can win " + perm.size()); // instances when team A wins
+        System.out.println("Total ways of winning " + perm.size() * 2); // total ways
     }
 }
